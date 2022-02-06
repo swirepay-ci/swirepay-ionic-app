@@ -1,10 +1,8 @@
 import { IonButton, IonCheckbox, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonPage, IonRow, IonToolbar } from '@ionic/react';
-import styles from './Home.module.scss';
+import styles from '../Home.module.scss';
 
-import Success from '../icons/success';
-import Cards from '../icons/cards';
-import BackArrow from '../icons/backArrow';
-import Close from '../icons/close';
+import Success from '../../icons/success';
+import Close from '../../icons/close';
 
 const SuccessPage = () => {
 	return (

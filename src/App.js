@@ -2,8 +2,8 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
-import SuccessPage from './pages/Success';
-import ErrorPage from './pages/Error';
+import SuccessPage from './pages/lib/Success';
+import ErrorPage from './pages/lib/Error';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -30,12 +30,12 @@ const App = () => (
 			<IonRouterOutlet>
 				
 				<Route exact path="/checkout/:id">
-					<Home props/>
+					<Home />
 				</Route>
-				<Route exact path="/success">
+				<Route exact path="/sp-success">
 					<SuccessPage />
 				</Route>
-				<Route exact path="/failed">
+				<Route exact path="/sp-failed">
 					<ErrorPage />
 				</Route>
 
