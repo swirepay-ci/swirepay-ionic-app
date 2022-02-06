@@ -1,5 +1,3 @@
-# ionic-react-payment
-
 ### Included in this Ionic React UI
 * Custom Hooks
 * Generic form building
