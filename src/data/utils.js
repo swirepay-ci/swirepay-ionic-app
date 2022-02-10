@@ -30,14 +30,19 @@ export const useFormInput = (initialValue = "") => {
 			setValue(tempValue);
 		} else if (e.currentTarget.type === 'card') {
 			e.target.value = e.target.value.replace(/[^\d ]/g, '');
-			const tempValue = await e.currentTarget.value;
-				setValue(tempValue);
-			// 
-			// if (e.target.value.length < 19) {
-			// 	e.target.value = e.target.value.replace(/\W/gi, '').replace(/(.{4})/g, '$1');
-			// 	const tempValue = await e.currentTarget.value;
-			// 	setValue(tempValue);
-			// }
+			var v = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+			var matches = v.match(/\d{4,16}/g);
+			var match = (matches && matches[0]) || '';
+			var parts = [];
+			for (let i=0, len=match.length; i<len; i+=4) {
+				parts.push(match.substring(i, i+4))
+			  }
+			  if (parts.length) {
+				  setValue(parts.join(' '));
+				return parts.join(' ');
+			  } else {
+				return value;
+			  }
 
 		} else {
 			const tempValue = await e.currentTarget.value;
@@ -47,7 +52,6 @@ export const useFormInput = (initialValue = "") => {
 	}
 
 	return {
-
 		value,
 		reset: (newValue) => setValue(newValue),
 		onIonChange: handleChange,
